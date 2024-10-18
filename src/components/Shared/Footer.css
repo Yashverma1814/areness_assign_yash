@@ -1,0 +1,17 @@
+.footer {
+    background-color: #ff6464;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* To avoid overlap with other content */
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Mobile View */
+  @media (max-width: 768px) {
+    .footer p {
+      font-size: 14px; /* Smaller text on mobile */
+    }
+  }
+  

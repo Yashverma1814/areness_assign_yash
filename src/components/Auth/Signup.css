@@ -1,0 +1,47 @@
+.signup-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF5F6D;
+  }
+  
+  .signup-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 800px; /* Adjust width to accommodate larger image */
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .signup-form {
+    width: 45%; /* Adjust form width as needed */
+  }
+  
+  .signup-image {
+    width: 55%; /* Increase the width for a larger image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-image img {
+    width: 100%; /* Ensures image fills the container */
+    height: auto; /* Maintains the aspect ratio */
+    object-fit: contain;
+  }
+  
+  .signup-btn, input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .error-message {
+    color: red; /* Change this color to match your design */
+    margin: 10px 0;
+  }
+  
+  

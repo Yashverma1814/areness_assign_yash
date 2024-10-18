@@ -1,0 +1,43 @@
+.dashboard-header {
+    background-color: #ff6464;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 22px;
+  }
+  
+  /* Header Icons */
+  .dashboard-header .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dashboard-header .header-icons img {
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  /* Mobile View */
+  @media (max-width: 768px) {
+    .dashboard-header h1 {
+      font-size: 18px;
+    }
+  
+    .dashboard-header .header-icons {
+      display: none; /* Hide on mobile */
+    }
+  
+    .menu-toggle {
+      display: block; /* Show hamburger icon */
+      cursor: pointer;
+      font-size: 30px;
+    }
+  }
+  
