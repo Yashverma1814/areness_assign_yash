@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.css'; // The corresponding CSS file for styling
+import profileImage from '../../assets/images/profile.png';
 import { Link } from 'react-router-dom';
     
 const Dashboard = () => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
     <div className={`dashboard ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
       <aside className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
         <div className="user-profile">
-          <img src="user-avatar-url" alt="User" className="user-avatar" />
+          <img src={profileImage} alt="Users" className="user-avatar" />
           <h2>Sundar Gurung</h2>
           <p>sundargurung360@gmail.com</p>
         </div>
