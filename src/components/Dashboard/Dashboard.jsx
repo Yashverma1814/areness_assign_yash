@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dashboard.css'; // The corresponding CSS file for styling
 import { Link } from 'react-router-dom';
-
+    
 const Dashboard = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true); // State to control sidebar visibility
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="dashboard">
-      <aside className="sidebar">
+    <div className={`dashboard ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <aside className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
         <div className="user-profile">
           <img src="user-avatar-url" alt="User" className="user-avatar" />
           <h2>Sundar Gurung</h2>
@@ -19,10 +25,13 @@ const Dashboard = () => {
           <a href="/settings">Settings</a>
           <a href="/help">Help</a>
         </nav>
-            <Link to={"/"} className="logout">Logout</Link>
+        <Link to={"/"} className="logout">Logout</Link>
       </aside>
 
       <main className="content">
+        <button className="toggle-sidebar" onClick={toggleSidebar}>
+          {isSidebarOpen ? 'Hide Menu' : 'Show Menu'}
+        </button>
         <header className="content-header">
           <h1>Welcome back, Sundar 👋</h1>
           <div className="task-stats">

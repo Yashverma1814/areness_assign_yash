@@ -8,18 +8,28 @@ body {
   .dashboard {
     display: flex;
     height: 100vh;
+    transition: margin-left 0.3s; /* Transition for smooth effect when collapsing */
   }
   
   .sidebar {
-    width: 250px;
-    background-color: #FF5F6D;
+    width: 250px; /* Width when expanded */
+    background-color: #FF5F6D; /* Original sidebar color */
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: white;
+    transition: width 0.3s, opacity 0.3s; /* Smooth transition for width and opacity change */
   }
   
+  .sidebar.closed {
+    width: 0; /* Width when collapsed */
+    padding: 0; /* Remove padding when collapsed */
+    opacity: 0; /* Hide sidebar */
+    overflow: hidden; /* Prevent content overflow */
+  }
+  
+  /* User Profile */
   .user-profile {
     text-align: center;
   }
@@ -31,15 +41,18 @@ body {
     margin-bottom: 10px;
   }
   
+  /* Sidebar Title */
   .sidebar h2 {
     margin: 10px 0;
     font-size: 1.2rem;
+    display: block; /* Show title when sidebar is expanded */
   }
   
-  .sidebar p {
-    font-size: 0.9rem;
+  .sidebar.closed h2 {
+    display: none; /* Hide title when sidebar is collapsed */
   }
   
+  /* Sidebar Menu */
   .sidebar-menu a {
     display: block;
     padding: 15px;
@@ -51,10 +64,12 @@ body {
     transition: background-color 0.3s;
   }
   
-  .sidebar-menu a.active, .sidebar-menu a:hover {
+  .sidebar-menu a.active,
+  .sidebar-menu a:hover {
     background-color: #ff8a80;
   }
   
+  /* Logout Button */
   .logout {
     padding: 15px;
     color: white;
@@ -75,8 +90,10 @@ body {
     padding: 20px;
     background-color: #f5f5f5;
     overflow-y: auto;
+    transition: margin-left 0.3s; /* Smooth transition for content shift */
   }
   
+  /* Content Header */
   .content-header {
     display: flex;
     justify-content: space-between;
@@ -89,11 +106,13 @@ body {
     font-weight: 500;
   }
   
+  /* Task Stats */
   .task-stats {
     display: flex;
     gap: 20px;
   }
   
+  /* Task Stats Item */
   .task-stats div {
     background-color: #fff;
     padding: 10px;
@@ -119,7 +138,8 @@ body {
     gap: 20px;
   }
   
-  .task-todo, .task-completed {
+  .task-todo,
+  .task-completed {
     flex: 1;
     background-color: #fff;
     padding: 20px;
@@ -127,19 +147,22 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .task-todo h2, .task-completed h2 {
+  .task-todo h2,
+  .task-completed h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
     color: #333;
   }
   
-  .task-todo ul, .task-completed ul {
+  .task-todo ul,
+  .task-completed ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  .task-todo ul li, .task-completed ul li {
+  .task-todo ul li,
+  .task-completed ul li {
     margin-bottom: 20px;
     background-color: #f9f9f9;
     padding: 15px;
@@ -147,18 +170,55 @@ body {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
   }
   
-  .task-todo ul li h3, .task-completed ul li h3 {
+  .task-todo ul li h3,
+  .task-completed ul li h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
   }
   
-  .task-todo ul li p, .task-completed ul li p {
+  .task-todo ul li p,
+  .task-completed ul li p {
     font-size: 0.9rem;
     margin: 0;
   }
   
   /* Responsive Styles */
-  @media screen and (max-width: 768px) {
+ /* Responsive Styles */
+ @media screen and (max-width: 768px) {
+    .dashboard {
+      position: relative; /* Ensure the dashboard has a relative positioning context */
+      flex-direction: column; /* Stack sidebar and content on mobile */
+      height: auto; /* Allow height to adjust */
+    }
+  
+    .sidebar {
+      position: absolute; /* Position sidebar absolutely */
+      top: 0; /* Align to the top of the dashboard */
+      left: 0; /* Align to the left side */
+      width: 250px; /* Set the width of the sidebar */
+      height: 100%; /* Make the sidebar full height */
+      z-index: 10; /* Ensure the sidebar is above other content */
+      background-color: #FF5F6D; /* Original sidebar color */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+      transition: width 0.3s, opacity 0.3s; /* Smooth transition for width and opacity change */
+    }
+  
+    .sidebar.closed {
+      width: 0; /* Width when collapsed */
+      padding: 0; /* Remove padding when collapsed */
+      opacity: 0; /* Hide sidebar */
+      overflow: hidden; /* Prevent content overflow */
+    }
+  
+    .content {
+      padding: 10px; /* Reduced padding for mobile */
+      margin-left: 0; /* Remove any left margin for content */
+    }
+  
     .content-header {
       flex-direction: column;
       align-items: flex-start;
@@ -173,8 +233,8 @@ body {
       flex-direction: column;
     }
   
-    .sidebar {
-      width: 200px;
+    .task-stats div {
+      padding: 15px; /* Increased padding for task stats on mobile */
     }
   }
   

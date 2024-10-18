@@ -12,7 +12,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate that all fields are filled
     if (!username || !password) {
       setErrorMessage('Please fill in all fields.');
       return;
@@ -21,13 +20,10 @@ const Login = () => {
         navigate('/dashboard')
     }
 
-    // Clear error message if validation passes
     setErrorMessage('');
 
-    // Proceed with login logic (e.g., API call)
     console.log('Logging in with', { username, password });
 
-    // Redirect or any other logic after successful login
   };
 
   return (
@@ -48,11 +44,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
-          <div className="login-options">
-            <label>
-              <input type="checkbox" /> Remember Me
-            </label>
-          </div>
+          
           <button className="login-btn" onClick={handleSubmit}>Login</button>
 
           <div className="social-login">

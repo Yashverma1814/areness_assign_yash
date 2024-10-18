@@ -43,4 +43,7 @@
     color: red; /* Change this color to match your design */
     margin: 10px 0;
   }
+  .login-options{
+    display: flex;
+  }
   
